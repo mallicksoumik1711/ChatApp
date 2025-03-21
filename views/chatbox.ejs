@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 h-screen flex flex-col items-center p-4">
+
+    <!-- Chat Container -->
+    <div class="w-full sm:max-w-2xl lg:max-w-4xl h-full flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
+        <!-- Chat Header -->
+        <div class="flex justify-between items-center bg-blue-500 text-white py-4 px-4 mb-1">
+            <h1 class="text-lg font-bold">Chat Room <%= chatid %>
+            </h1>
+            <a href="/chat-id" class="text-red-500 bg-white px-4 py-2 rounded-md text-sm sm:text-base">Exit Chat</a>
+        </div>
+
+        <!-- Messages Box -->
+        <div id="chat-box" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
+
+        <!-- Input Box -->
+        <div class="flex items-center p-3 border-t bg-gray-50">
+            <input id="message-input" type="text"
+                class="flex-grow p-3 border rounded-lg outline-none text-sm sm:text-base"
+                placeholder="Type a message...">
+            <button id="send-btn"
+                class="ml-3 bg-blue-500 text-white px-5 py-3 rounded-lg text-sm sm:text-base">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const username = "<%= username %>".trim(); // Pass logged-in user's name dynamically
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const socket = io();
+            const chatid = "<%= chatid %>";
+            const chatBox = document.getElementById("chat-box");
+            const inputField = document.getElementById("message-input");
+            const sendBtn = document.getElementById("send-btn");
+
+            // Join chat room
+            socket.emit("joinRoom", chatid);
+
+            // Function to send a message
+            function sendMessage() {
+                let message = inputField.value.trim();
+                if (!message) return;
+
+                const timestamp = new Date().toLocaleTimeString();
+                // const sender = "You";
+                const sender = username; // Send the actual username
+
+
+                // Emit message to server only, don't append locally
+                socket.emit("sendMessage", { chatid, message, sender, timestamp });
+
+                inputField.value = "";
+            }
+
+            function appendMessage({ message, sender, timestamp }) {
+                let isCurrentUser = sender.trim().toLowerCase() === username.trim().toLowerCase();
+
+                let msgContainer = document.createElement("div");
+                msgContainer.classList.add("flex", "flex-col", "mb-2");
+
+                if (isCurrentUser) {
+                    msgContainer.classList.add("items-end");
+                } else {
+                    msgContainer.classList.add("items-start");
+                }
+
+                let usernameTag = document.createElement("p");
+                usernameTag.classList.add("text-xs", "text-gray-500", "mb-1");
+                usernameTag.textContent = sender;
+
+                let msgBubble = document.createElement("div");
+                msgBubble.classList.add("p-3", "rounded-lg", "max-w-xs", "shadow-md");
+
+                if (isCurrentUser) {
+                    msgBubble.classList.add("bg-blue-500", "text-white");
+                } else {
+                    msgBubble.classList.add("bg-gray-200", "text-gray-800");
+                }
+
+                msgBubble.textContent = message;
+
+                let timestampSpan = document.createElement("span");
+                timestampSpan.classList.add("text-xs", "text-gray-400", "mt-1");
+                timestampSpan.textContent = timestamp;
+
+                msgContainer.appendChild(usernameTag);
+                msgContainer.appendChild(msgBubble);
+                msgContainer.appendChild(timestampSpan);
+
+                chatBox.appendChild(msgContainer);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+
+            // Send message on button click
+            sendBtn.addEventListener("click", sendMessage);
+
+            // Send message on Enter key press
+            inputField.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+
+            // Listen for incoming messages
+            socket.on("receiveMessage", (data) => {
+                appendMessage(data);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-screen flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row h-screen w-full">
+        <!-- Left Section (Form with Gradient Background) -->
+        <div
+            class="w-full md:w-3/4 h-full flex items-center justify-center px-6 sm:px-12 md:px-16 bg-gradient-to-b from-pink-200 to-purple-200">
+            <div class="max-w-md w-full bg-transparent p-6 sm:p-10 rounded-lg shadow-lg">
+
+                <div class="head flex justify-between items-center">
+                    <div class="">
+                        <a href="/login-user"><img src="../Images/logo.png" alt="TheCubeFactory Logo" class="h-8"></a>
+                    </div>
+                    <div class="welcome">
+                        <h2 class="text-3xl font-bold text-center">Welcome back</h2>
+                        <p class="text-gray-600 text-center">Login to your account</p>
+                    </div>
+                    <div class="hide"></div>
+                </div>
+
+                <form action="/login-user" method="post" class="mt-6 mb-6">
+
+                    <div>
+                        <label class="text-gray-600">Email address</label>
+                        <input type="email" name="email"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-600">Password</label>
+                        <input type="password" name="password"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <input type="submit" value="Sign in"
+                        class="w-full mt-6 bg-purple-500 text-white py-3 rounded-lg text-lg hover:bg-purple-700 transition">
+                </form>
+
+                <!-- Google Sign-Up Button -->
+                <button
+                    class="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg bg-white text-gray-700 hover:bg-gray-100 transition mb-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Google Logo" class="w-8 h-8">
+                    <span>Connect to github</span>
+                </button>
+
+                <button
+                    class="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg bg-white text-gray-700 hover:bg-gray-100 transition">
+                    <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+                        alt="Google Logo" class="w-8 h-8">
+                    <span>Sign up with Google</span>
+                </button>
+
+                <p class="text-center mt-4">
+                    Don't have an account? <a href="/register-user"
+                        class="text-purple-600 font-medium hover:underline">Sign
+                        up</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Section (Illustration) - Hidden on Small Screens -->
+        <div
+            class="hidden md:flex w-1/2 h-full bg-purple-300 items-center justify-center bg-gradient-to-b from-pink-200 to-purple-200">
+            <img src="../Images/login.png" alt="Illustration" class="w-full h-full object-cover">
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whispr Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobile-menu").classList.toggle("translate-x-full");
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 min-h-screen w-full">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-10 py-4 z-50">
+        <!-- Logo -->
+        <div class="text-xl font-bold flex items-center">
+            <img src="/images/logo.png" alt="Logo" class="h-8 mr-2">
+            Whispr
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMenu()" class="md:hidden text-gray-700 focus:outline-none text-2xl">
+            ☰
+        </button>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-8 text-gray-700">
+            <li><a href="#" class="hover:text-black">Home</a></li>
+            <li><a href="#" class="hover:text-black">Features</a></li>
+            <li><a href="#" class="hover:text-black">Community</a></li>
+        </ul>
+
+        <!-- Logout Button -->
+        <a href="/logout" class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold hidden md:block 
+           transition-transform duration-300 hover:bg-red-600 hover:scale-105 shadow-md
+           active:scale-95">
+            Log Out
+        </a>
+
+    </nav>
+
+    <!-- Mobile Menu (Sliding from Right with Glassmorphism) -->
+    <div id="mobile-menu"
+        class="fixed top-0 right-0 h-screen w-64 bg-white/30 backdrop-blur-lg shadow-lg p-6 transform translate-x-full transition-transform duration-300 z-50">
+        <button onclick="toggleMenu()"
+            class="text-2xl text-gray-700 absolute top-4 right-4 focus:outline-none">&times;</button>
+        <ul class="mt-16 space-y-6 text-right text-gray-700 text-lg">
+            <li><a href="#" class="hover:text-black">Home</a></li>
+            <li><a href="#" class="hover:text-black">Features</a></li>
+            <li><a href="#" class="hover:text-black">Community</a></li>
+            <li><a href="/logout" class="bg-red-400 text-white px-5 py-2 rounded-full text-sm inline-block">Log Out</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="text-center pt-28 px-6">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Connect, Share, and Grow<br>Your World 🌍</h1>
+        <p class="text-gray-600 mt-4 text-lg">Discover a new way to connect with friends and communities that matter.
+        </p>
+
+        <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
+            <a href="/chat-id" class="bg-red-500 text-white px-6 py-3 rounded-full text-lg w-full md:w-auto text-center 
+                       font-semibold shadow-md transition-transform duration-300 hover:bg-red-600 
+                       hover:scale-105 active:scale-95">
+                Join Now
+            </a>
+            <a href="#" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg text-lg w-full md:w-auto text-center 
+                       font-semibold shadow-md transition-transform duration-300 hover:bg-gray-300 
+                       hover:scale-105 active:scale-95">
+                Learn More
+            </a>
+        </div>
+
+
+        <div class="flex flex-col md:flex-row justify-center items-center mt-6">
+            <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Users"
+                class="h-10">
+            <p class="ml-2 text-gray-700 text-sm md:text-base">Join with 2100+ users and start getting feedback right
+                now</p>
+        </div>
+    </div>
+
+    <!-- Card Section -->
+    <div class="mt-16 flex flex-col md:flex-row justify-center gap-6 md:gap-8 px-6 md:px-12">
+        <div
+            class="w-full md:w-96 bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://plus.unsplash.com/premium_photo-1721922862292-d65035278faa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="w-full h-56 object-cover">
+            <div class="p-6">
+                <span class="text-sm font-semibold text-white bg-blue-500 px-4 py-1 rounded-full shadow-md">Instant
+                    Messaging</span>
+                <h2 class="text-2xl font-bold mt-4">Chat Seamlessly</h2>
+                <p class="text-gray-600 mt-3 text-sm leading-relaxed">Stay connected with friends and family in
+                    real-time with our secure messaging platform.</p>
+            </div>
+        </div>
+
+        <div
+            class="w-full md:w-96 bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://plus.unsplash.com/premium_photo-1683972509783-da5a74795bb3?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="w-full h-56 object-cover">
+            <div class="p-6">
+                <span class="text-sm font-semibold text-white bg-orange-500 px-4 py-1 rounded-full shadow-md">Group
+                    Chats</span>
+                <h2 class="text-2xl font-bold mt-4">Connect With Your Circle</h2>
+                <p class="text-gray-600 mt-3 text-sm leading-relaxed">Create groups, share updates, and chat with
+                    multiple friends in one place.</p>
+            </div>
+        </div>
+
+        <div
+            class="w-full md:w-96 bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src="https://plus.unsplash.com/premium_photo-1682310158823-917a4f726802?q=80&w=2112&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="w-full h-56 object-cover">
+            <div class="p-6">
+                <span class="text-sm font-semibold text-white bg-red-500 px-4 py-1 rounded-full shadow-md">24/7
+                    service</span>
+                <h2 class="text-2xl font-bold mt-4">Talk Anytime, Anywhere</h2>
+                <p class="text-gray-600 mt-3 text-sm leading-relaxed">Enjoy high-quality chats with seamless
+                    connectivity, without storing data.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-800 mt-12 text-white py-12 px-6 md:px-20 text-center md:text-left">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div>
+                <h3 class="font-semibold">Contact</h3>
+                <p class="text-sm text-gray-200">📞 xxxxxxxxxx</p>
+            </div>
+            <div>
+                <h3 class="font-semibold">Navigate</h3>
+                <p class="text-sm text-gray-200">Services, Success Stories...</p>
+            </div>
+            <div>
+                <h3 class="font-semibold">Solution</h3>
+                <p class="text-sm text-gray-200">Get in Touch, Technology...</p>
+            </div>
+            <div>
+                <h3 class="font-semibold">Discover</h3>
+                <p class="text-sm text-gray-200">Latest News, Careers...</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-center md:text-left">Follow Us</h3>
+                <div class="flex justify-center md:justify-start gap-3 md:gap-4 mt-4">
+                    <a href="#"
+                        class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"
+                            class="w-5 h-5 md:w-6 md:h-6">
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="GitHub"
+                            class="w-5 h-5 md:w-6 md:h-6">
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"
+                            class="w-5 h-5 md:w-6 md:h-6">
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg hover:scale-110 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"
+                            class="w-5 h-5 md:w-6 md:h-6">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="mt-10 text-gray-500 text-sm">&copy; 2024 Whispr. All rights reserved.</div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-screen flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row h-screen w-full">
+        <!-- Left Section (Form with Gradient Background) -->
+        <div
+            class="w-full md:w-3/4 h-full flex items-center justify-center px-6 sm:px-12 md:px-16 bg-gradient-to-b from-pink-200 to-purple-200">
+            <div class="max-w-md w-full bg-transparent p-6 sm:p-10 rounded-lg shadow-lg">
+
+                <div class="head flex justify-between items-center">
+                    <div class="/registration">
+                        <a href=""><img src="../Images/logo.png" alt="TheCubeFactory Logo" class="h-8"></a>
+                    </div>
+                    <div class="welcome">
+                        <h2 class="text-3xl font-bold text-center">Welcome back</h2>
+                        <p class="text-gray-600 text-center">Create a free account</p>
+                    </div>
+                    <div class="hide"></div>
+                </div>
+
+                <form action="/register-user-form" class="mt-6 space-y-4" method="post">
+
+                    <div>
+                        <label class="text-gray-600">Username</label>
+                        <input type="text" name="username"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-600">Email address</label>
+                        <input type="email" name="email"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-600">Password</label>
+                        <input type="password" name="password"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-600">Repeat password</label>
+                        <input type="password" name="repeatpassword"
+                            class="w-full p-3 border rounded-lg mt-1 bg-white text-gray-800 focus:ring-2 focus:ring-purple-300 outline-none">
+                    </div>
+
+                    <input type="submit"
+                        class="w-full mt-4 bg-purple-500 text-white py-3 rounded-lg text-lg hover:bg-purple-700 transition"
+                        value="Sign in">
+                </form>
+
+                <p class="text-center mt-4">
+                    Already have an account? <a href="/login-user"
+                        class="text-purple-600 font-medium hover:underline">Sign
+                        in</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Section (Illustration) - Hidden on Small Screens -->
+        <div
+            class="hidden md:flex w-1/2 h-full bg-purple-300 items-center justify-center bg-gradient-to-b from-pink-200 to-purple-200">
+            <img src="../Images/registration2.avif" alt="Illustration" class="w-full h-full object-cover">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
