@@ -6,7 +6,10 @@ let userSchema = mongoose.Schema({
     username: String,
     email: String,
     password: String,
-    repeatpassword: String
+    repeatpassword: String,
+    isAdmin: false,
+    connections: [],
+    chatRooms: []
 });
 
 module.exports = mongoose.model('user', userSchema);
