@@ -7,7 +7,7 @@ let userSchema = mongoose.Schema({
     email: String,
     password: String,
     repeatpassword: String,
-    isAdmin: false,
+    isAdmin: false, // not in vs, added directly in git
     connections: [],
     chatRooms: []
 });
