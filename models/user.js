@@ -9,7 +9,6 @@ let userSchema = mongoose.Schema({
     repeatpassword: String,
     isAdmin: false, // not in vs, added directly in git
     connections: [],  // not in vs, added directly in git
-    chatRooms: []  // not in vs, added directly in git
 });
 
 module.exports = mongoose.model('user', userSchema);
