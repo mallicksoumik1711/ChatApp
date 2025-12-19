@@ -7,7 +7,6 @@ let userSchema = mongoose.Schema({
     email: String,
     password: String,
     repeatpassword: String,
-    isAdmin: false, // not in vs, added directly in git
 });
 
 module.exports = mongoose.model('user', userSchema);
